@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ProductTable from '../components/ProductTable'
 
 
 const Home = () => {
@@ -22,9 +23,10 @@ const Home = () => {
     return (
         <div>
             <div className='Products'>
-                {products && products.map((product) => (
-                    <p key={product._id}>{product.name} - {product.SKU}</p>
-                ))}
+                {/* {products && products.map((product) => (
+                    <ProductTable key={product._id} product={product} />
+                ))} */}
+                {products && <ProductTable products={products} />}
             </div>
         </div>
     )
