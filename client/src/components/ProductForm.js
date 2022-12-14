@@ -6,7 +6,7 @@ const ProductForm = () => {
     const [category, setCategory] = useState('')
     const [condition, setCondition] = useState('')
     const [quantity, setQuantity] = useState('')
-    const [error, setError] = useState('')
+    const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
         //prevents refreshing page on submit
@@ -22,7 +22,7 @@ const ProductForm = () => {
             }
         })
 
-        const json = await response.json
+        const json = await response.json()
 
         if (!response.ok) {
             setError(json.error)
@@ -43,38 +43,41 @@ const ProductForm = () => {
 
     return (
         <form className='create' onSubmit={handleSubmit}>
+            {error && <div>{error}</div>}
             <h3>Add a New Product</h3>
-            <label>Product Name:</label>
+            <label>Product Name: </label>
             <input
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
             />
-            <label>SKU:</label>
+            <label>SKU: </label>
             <input
                 type="text"
                 onChange={(e) => setSKU(e.target.value)}
                 value={SKU}
             />
-            <label>Category:</label>
+            <label>Category: </label>
             <input
                 type="text"
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
             />
-            <label>Condition:</label>
-            <select onChange={(e) => setCondition(e.target.value)}>
+            <label>Condition: </label>
+            <select placeholder={'test'} onChange={(e) => setCondition(e.target.value)}>
+                <option disabled={true} value="">
+                    --Choose and option--
+                </option>
                 <option value="Resell">Resell</option>
                 <option value="Instructor">Instructor</option>
                 <option value="Quarantine">Quarantine</option>
             </select>
-            <label>Quantity:</label>
+            <label>Quantity: </label>
             <input
                 type="number"
                 onChange={(e) => setQuantity(e.target.value)}
                 value={quantity}
             />
-            {error && <div className='error'>{error}</div>}
             <button>Add Product</button>
         </form>
     )
