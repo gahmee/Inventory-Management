@@ -34,3 +34,23 @@ header a {
   padding: 20px;
   margin: 0 auto;
 }
+
+.product-table {
+  height: 100%;
+  border-style: none;
+}
+
+.product-table th {
+  text-align: left;
+}
+
+.product-table tr:nth-child(even) {
+  text-align: left;
+  background-color: rgb(228, 228, 228);
+}
+
+.product-table tr {
+  text-align: left;
+  border-style: none;
+  padding: 10em;
+}

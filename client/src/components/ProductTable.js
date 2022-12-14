@@ -3,10 +3,10 @@ const productTable = ({ products }) => {
         <div className="product-table">
             <table>
                 <tr>
-                    <th>Name</th>
-                    <th>SKU</th>
-                    <th>Category</th>
-                    <th>Condition</th>
+                    <th width="200px">Name</th>
+                    <th width="200px">SKU</th>
+                    <th width="100px">Category</th>
+                    <th width="100px">Condition</th>
                     <th>Quantity</th>
                 </tr>
                 {products && products.map((p) => (

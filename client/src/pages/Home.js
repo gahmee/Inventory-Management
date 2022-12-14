@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import ProductTable from '../components/ProductTable'
+import ProductForm from '../components/ProductForm'
 
 
 const Home = () => {
@@ -22,12 +23,14 @@ const Home = () => {
 
     return (
         <div>
+            <ProductForm />
             <div className='Products'>
                 {/* {products && products.map((product) => (
                     <ProductTable key={product._id} product={product} />
                 ))} */}
                 {products && <ProductTable products={products} />}
             </div>
+
         </div>
     )
 }
