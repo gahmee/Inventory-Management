@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useProductsContext } from '../hooks/useProductsContext'
+
+
 import ProductTable from '../components/ProductTable'
 import ProductForm from '../components/ProductForm'
 
 
 const Home = () => {
 
-    const [products, setProducts] = useState(null)
+    const { products, dispatch } = useProductsContext()
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -13,7 +16,7 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setProducts(json);
+                dispatch({ type: 'SET_PRODUCTS', payload: json });
             }
         }
 

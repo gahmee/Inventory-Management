@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useProductsContext } from '../hooks/useProductsContext'
 
 const ProductForm = () => {
+    const { dispatch } = useProductsContext()
     const [name, setName] = useState('')
     const [SKU, setSKU] = useState('')
     const [category, setCategory] = useState('')
@@ -36,6 +38,7 @@ const ProductForm = () => {
             setQuantity('')
             setError(null)
             console.log('added new product', json)
+            dispatch({ type: 'CREATE_PRODUCT', payload: json })
         }
 
 
@@ -64,7 +67,7 @@ const ProductForm = () => {
                 value={category}
             />
             <label>Condition: </label>
-            <select placeholder={'test'} onChange={(e) => setCondition(e.target.value)}>
+            <select onChange={(e) => setCondition(e.target.value)}>
                 <option disabled={true} value="">
                     --Choose and option--
                 </option>
