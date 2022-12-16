@@ -16,12 +16,22 @@ header {
 }
 
 header .container {
-  width: 100%;
-  margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-buttons p {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
 }
 
 header a {
@@ -29,11 +39,7 @@ header a {
   text-decoration: none;
 }
 
-.pages {
-  width: 100%;
-  padding: 20px;
-  margin: 0 auto;
-}
+.pages {}
 
 .product-table {
   height: 100%;
