@@ -11,7 +11,7 @@ const ProductTable = ({ products }) => {
         setProductId(product._id);
     };
 
-    const handleCancelClick = (event, product) => {
+    const handleCancelClick = (event) => {
         event.preventDefault();
         setProductId(null);
     };

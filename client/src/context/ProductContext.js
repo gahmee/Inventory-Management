@@ -12,6 +12,11 @@ export const productsReducer = (state, action) => {
             return {
                 products: [action.payload, ...state.products]
             }
+        case 'EDIT_PRODUCT':
+            const filtered = state.products.filter((p) => p._id !== action.payload._id)
+            return {
+                products: [action.payload, ...filtered]
+            }
         default:
             return state
     }
