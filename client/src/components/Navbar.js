@@ -11,9 +11,6 @@ const Navbar = () => {
                     <Link to="receive">
                         <p>Receive</p>
                     </Link>
-                    <Link to="edit">
-                        <p>Edit</p>
-                    </Link>
                     <Link to="Add">
                         <p>Add</p>
                     </Link>

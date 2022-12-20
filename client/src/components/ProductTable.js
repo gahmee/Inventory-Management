@@ -1,4 +1,21 @@
-const productTable = ({ products }) => {
+
+import EditableRow from "./EditableRow"
+import ReadOnlyRow from "./ReadOnlyRow"
+import { useState } from 'react'
+
+const ProductTable = ({ products }) => {
+    const [editProductId, setProductId] = useState(null);
+
+    const handleEditClick = (event, product) => {
+        event.preventDefault();
+        setProductId(product._id);
+    };
+
+    const handleCancelClick = (event, product) => {
+        event.preventDefault();
+        setProductId(null);
+    };
+
     return (
         <div className="product-table">
             <div>
@@ -13,16 +30,12 @@ const productTable = ({ products }) => {
                             <th>Received</th>
                             <th>Quantity</th>
                         </tr>
-                        {products && products.map((p) => (
-                            <tr key={p._id}>
-                                <td>{p.SKU}</td>
-                                <td>{p.name}</td>
-                                <td>{p.category}</td>
-                                <td>{p.condition}</td>
-                                <td>{p.quantity}</td>
-                                <td>{p.quantity}</td>
-                                <td>{p.quantity}</td>
-                            </tr>
+                        {products && products.map((product) => (
+                            <>
+                                {editProductId === product._id ?
+                                    <EditableRow product={product} handleCancelClick={handleCancelClick} /> :
+                                    <ReadOnlyRow product={product} handleEditClick={handleEditClick} />}
+                            </>
                         ))}
                     </tbody>
                 </table>
@@ -31,4 +44,4 @@ const productTable = ({ products }) => {
     )
 }
 
-export default productTable
+export default ProductTable
