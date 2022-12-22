@@ -32,12 +32,38 @@ const EditableRow = ({ product, handleCancelClick }) => {
 
         if (response.ok) {
             setError(null)
-            console.log('added new product', json)
+            console.log('edited new product', json)
             dispatch({ type: 'EDIT_PRODUCT', payload: json })
             handleCancelClick(e)
         }
+    }
 
+    const handleDelete = async (e, p) => {
+        //prevents refreshing page on submit
+        e.preventDefault()
 
+        const product = { name, SKU, category, condition, quantity }
+
+        const response = await fetch('http://localhost:4000/api/products/' + p._id, {
+            method: 'DELETE',
+            body: JSON.stringify(product),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const json = await response.json()
+
+        if (!response.ok) {
+            setError(json.error)
+        }
+
+        if (response.ok) {
+            setError(null)
+            console.log('deleted product', json)
+            dispatch({ type: 'DELETE_PRODUCT', payload: json })
+            handleCancelClick(e)
+        }
     }
 
     return (
@@ -116,6 +142,12 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 onClick={(event) => handleSubmit(event, product)}
             >
                 Submit
+            </button>
+            <button
+                type="button"
+                onClick={(event) => handleDelete(event, product)}
+            >
+                Delete
             </button>
         </tr>
     )

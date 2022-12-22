@@ -13,9 +13,14 @@ export const productsReducer = (state, action) => {
             return {
                 products: [...createSorted]
             }
+        case 'DELETE_PRODUCT':
+            const removedProduct = state.products.filter((p) => p._id !== action.payload._id)
+            return {
+                products: [...removedProduct]
+            }
         case 'EDIT_PRODUCT':
-            const filtered = state.products.filter((p) => p._id !== action.payload._id)
-            const editSorted = [action.payload, ...filtered].sort((a, b) => a.SKU > b.SKU)
+            const removedPrevious = state.products.filter((p) => p._id !== action.payload._id)
+            const editSorted = [action.payload, ...removedPrevious].sort((a, b) => a.SKU > b.SKU)
             return {
                 products: [...editSorted]
             }
