@@ -1,8 +1,11 @@
+import ReceiveFrom from "../components/ReceiveFrom"
 
 
 const Receive = () => {
     return (
-        <div>Recieve</div>
+        <div>
+            <ReceiveFrom />
+        </div>
     )
 }
 
