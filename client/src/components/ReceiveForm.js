@@ -1,6 +1,7 @@
 import { useState } from "react"
+import ReceiveRow from "./RecieveRow"
 
-const ReceiveFrom = () => {
+const ReceiveForm = ({ products }) => {
   const [row, setRow] = useState([])
 
   const handleAdd = () => {
@@ -15,9 +16,9 @@ const ReceiveFrom = () => {
   return (
     <>
       <button onClick={() => handleAdd()}>Add</button>
-      {row.map((data, i) => <div> test </div>)}
+      {row.map((data, i) => <div><ReceiveRow product={products} /></div>)}
     </>
   )
 }
 
-export default ReceiveFrom
+export default ReceiveForm
