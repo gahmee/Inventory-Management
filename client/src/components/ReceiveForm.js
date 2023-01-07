@@ -1,39 +1,41 @@
 import { useState } from "react"
+import ReceiveRow from "./ReceiveRow"
 
 const ReceiveForm = ({ products }) => {
-  const [rows, setRow] = useState([])
-  const [id, setID] = useState('')
-  const [quantity, setQuantity] = useState('')
+  const [rowsData, setRowsData] = useState([])
 
-  const handleAdd = () => {
-    const newRow = [...rows, []]
-    setRow(newRow)
+
+  const handleAddRow = () => {
+
+    const rowsInput = {
+      _id: '',
+      name: '',
+      quantity: 0
+    }
+
+    setRowsData([...rowsData, rowsInput])
+  }
+
+  const deleteRow = (index) => {
+    const rows = [...rowsData]
+    rows.splice(index, 1)
+    setRowsData(rows)
+  }
+
+
+  const handleChange = (index, event) => {
+    const { name, value } = event.target
+    console.log(event.target.value)
+    const rowsInput = [...rowsData]
+    rowsInput[index][name] = value
+    setRowsData(rowsInput)
   }
 
 
   return (
     <>
-      <form>
-        {rows.map((data, i) =>
-          <>
-            <div>
-
-              <label>Product: </label>
-              <select onChange={(e) => setID(e.target.value)}>
-                {products.map((product) => <option value={product._id}>{product.name}</option>)}
-              </select>
-
-              <label>Quantity: </label>
-              <input type="number" onChange={(e) => setQuantity(e.target.value)} />
-
-              <button>X</button>
-
-            </div>
-          </>
-
-        )}
-      </form>
-      <button onClick={() => handleAdd()}>Add</button>
+      <ReceiveRow products={products} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
+      <button onClick={() => handleAddRow()}>Add</button>
     </>
   )
 }
