@@ -9,7 +9,6 @@ const ReceiveForm = ({ products }) => {
 
     const rowsInput = {
       _id: '',
-      name: '',
       quantity: 0
     }
 
@@ -25,7 +24,6 @@ const ReceiveForm = ({ products }) => {
 
   const handleChange = (index, event) => {
     const { name, value } = event.target
-    console.log(event.target.value)
     const rowsInput = [...rowsData]
     rowsInput[index][name] = value
     setRowsData(rowsInput)
