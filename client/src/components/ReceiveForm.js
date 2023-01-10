@@ -27,6 +27,7 @@ const ReceiveForm = ({ products }) => {
     const rowsInput = [...rowsData]
     rowsInput[index][name] = value
     setRowsData(rowsInput)
+    console.log(rowsData)
   }
 
 
