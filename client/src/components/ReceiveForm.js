@@ -1,9 +1,10 @@
 import { useState } from "react"
 import ReceiveRow from "./ReceiveRow"
+import { useProductsContext } from '../hooks/useProductsContext'
 
 const ReceiveForm = ({ products }) => {
   const [rowsData, setRowsData] = useState([])
-
+  const { dispatch } = useProductsContext()
 
   const handleAddRow = () => {
 
@@ -27,7 +28,36 @@ const ReceiveForm = ({ products }) => {
     const rowsInput = [...rowsData]
     rowsInput[index][name] = value
     setRowsData(rowsInput)
-    console.log(rowsData)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    rowsData.forEach((product) => submitData(product._id, product.quantity))
+  }
+
+  const submitData = async (_id, quantity) => {
+
+    const product = { _id, quantity }
+
+    const response = await fetch('http://localhost:4000/api/products/' + _id, {
+      method: 'PATCH',
+      body: JSON.stringify(product),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error)
+    }
+
+    if (response.ok) {
+      // setError(null)
+      console.log('edited new product', json)
+      dispatch({ type: 'EDIT_PRODUCT', payload: json })
+    }
   }
 
 
@@ -35,6 +65,7 @@ const ReceiveForm = ({ products }) => {
     <>
       <ReceiveRow products={products} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       <button onClick={() => handleAddRow()}>Add</button>
+      <button onClick={(event) => handleSubmit(event)}>submit</button>
     </>
   )
 }
