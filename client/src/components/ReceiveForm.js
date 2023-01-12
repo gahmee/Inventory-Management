@@ -4,7 +4,8 @@ import { useProductsContext } from '../hooks/useProductsContext'
 
 const ReceiveForm = ({ products }) => {
   const [rowsData, setRowsData] = useState([])
-  const [p, setP] = useState([...products])
+  const [productsData, setProductsData] = useState([...products])
+  const [error, setError] = useState(null)
   const { dispatch } = useProductsContext()
 
   const handleAddRow = () => {
@@ -38,7 +39,7 @@ const ReceiveForm = ({ products }) => {
 
   const submitData = async (id, addedQuantity) => {
 
-    const productToUpdate = p.find(({ _id }) => _id === id)
+    const productToUpdate = productsData.find(({ _id }) => _id === id)
     const quantity = Number(productToUpdate.quantity) + Number(addedQuantity)
 
     const product = { id, quantity }
@@ -54,28 +55,21 @@ const ReceiveForm = ({ products }) => {
     const json = await response.json()
 
     if (!response.ok) {
-      // setError(json.error)
+      setError(json.error)
     }
 
     if (response.ok) {
-      // setError(null)
+      setError(null)
       console.log('edited new product', json)
       dispatch({ type: 'EDIT_PRODUCT', payload: json })
     }
   }
 
-  const handleTest = () => {
-    const result = p.find(({ _id }) => _id === "63a25a9d4e204566458a148a");
-    console.log(result.quantity)
-  }
-
-
   return (
     <>
       <ReceiveRow products={products} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       <button onClick={() => handleAddRow()}>Add</button>
-      <button onClick={(event) => handleSubmit(event)}>submit</button>
-      <button onClick={() => handleTest()}>test</button>
+
     </>
   )
 }
