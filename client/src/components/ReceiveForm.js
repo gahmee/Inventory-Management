@@ -67,9 +67,9 @@ const ReceiveForm = ({ products }) => {
 
   return (
     <>
-      <ReceiveRow products={products} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
+      <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       <button onClick={() => handleAddRow()}>Add</button>
-
+      <button onClick={(event) => handleSubmit(event)}>Submit</button>
     </>
   )
 }
