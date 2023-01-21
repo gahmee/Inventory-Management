@@ -7,9 +7,10 @@ const ReadOnlyRow = ({ product, handleEditClick }) => {
       <td>{product.name}</td>
       <td>{product.category}</td>
       <td>{product.condition}</td>
+      <td>{product.previousQuantity}</td>
+      <td>{product.received}</td>
       <td>{product.quantity}</td>
-      <td>{product.quantity}</td>
-      <td>{product.quantity}</td>
+      <td>{product.quantity - (product.previousQuantity + product.received)}</td>
       <td>
         <button
           type="button"

@@ -7,6 +7,8 @@ const EditableRow = ({ product, handleCancelClick }) => {
     const [SKU, setSKU] = useState(product.SKU)
     const [category, setCategory] = useState(product.category)
     const [condition, setCondition] = useState(product.condition)
+    const [previousQuantity, setPreviousQuantity] = useState(product.previousQuantity)
+    const [received, setReceived] = useState(product.received)
     const [quantity, setQuantity] = useState(product.quantity)
     const [error, setError] = useState(null)
 
@@ -14,7 +16,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
         //prevents refreshing page on submit
         e.preventDefault()
 
-        const product = { name, SKU, category, condition, quantity }
+        const product = { name, SKU, category, condition, previousQuantity, received, quantity }
 
         const response = await fetch('http://localhost:4000/api/products/' + p._id, {
             method: 'PATCH',
@@ -42,7 +44,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
         //prevents refreshing page on submit
         e.preventDefault()
 
-        const product = { name, SKU, category, condition, quantity }
+        const product = { name, SKU, category, condition, previousQuantity, received, quantity }
 
         const response = await fetch('http://localhost:4000/api/products/' + p._id, {
             method: 'DELETE',
@@ -90,7 +92,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    name="SKU"
+                    name="category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                 ></input>
@@ -106,25 +108,25 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    name="SKU"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
+                    name="previousQuantity"
+                    value={previousQuantity}
+                    onChange={(e) => setPreviousQuantity(e.target.value)}
                 ></input>
             </td>
             <td>
                 <input
                     type="text"
                     required="required"
-                    name="SKU"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
+                    name="received"
+                    value={received}
+                    onChange={(e) => setReceived(e.target.value)}
                 ></input>
             </td>
             <td>
                 <input
                     type="text"
                     required="required"
-                    name="SKU"
+                    name="quantity"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                 ></input>

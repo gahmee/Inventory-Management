@@ -29,6 +29,7 @@ const ProductTable = ({ products }) => {
                             <th>Previous Quantity</th>
                             <th>Received</th>
                             <th>Quantity</th>
+                            <th>+/-</th>
                         </tr>
                         {products && products.map((product) => (
                             <>
