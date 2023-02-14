@@ -41,8 +41,9 @@ const ReceiveForm = ({ products }) => {
 
     const productToUpdate = productsData.find(({ _id }) => _id === id)
     const quantity = Number(productToUpdate.quantity) + Number(addedQuantity)
+    const received = Number(addedQuantity)
 
-    const product = { id, quantity }
+    const product = { id, quantity, received }
 
     const response = await fetch('http://localhost:4000/api/products/' + id, {
       method: 'PATCH',
