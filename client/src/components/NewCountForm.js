@@ -9,8 +9,13 @@ const NewCountForm = ({ products }) => {
 
   const submitData = async (id, newQuantity) => {
 
-    const productToUpdate = productsData.find(({ _id }) => _id === id)
-    const previousQuantity = productToUpdate.quantity
+    // const productToUpdate = productsData.find(({ _id }) => _id === id)
+
+    const productToUpdateResponse = await fetch('http://localhost:4000/api/products/' + id)
+    const productToUpdate = await productToUpdateResponse.json()
+
+    const previousQuantity = await productToUpdate.quantity
+
     const quantity = newQuantity
 
     const product = { id, previousQuantity, quantity }
@@ -41,9 +46,17 @@ const NewCountForm = ({ products }) => {
     productsData.forEach((product) => submitData(product._id, product.quantity))
   }
 
+  const handleChange = (event, index) => {
+    const { name, value } = event.target
+    const productInput = [...productsData]
+    productInput[index][name] = value
+    setProductsData(productInput)
+  }
+
+
   return (
     <>
-      {productsData.map((product) => <div>{product.name} <input type="number" value={product.newQuantity} /></div>)}
+      {productsData.map((product, index) => <div>{product.name} <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} /></div>)}
       <button onClick={(event) => handleSubmit(event)}>Submit</button>
     </>
   )
