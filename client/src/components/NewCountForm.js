@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useProductsContext } from '../hooks/useProductsContext'
+import ResetReceive from "./ResetReceive"
 
 const NewCountForm = ({ products }) => {
   const [productsData, setProductsData] = useState([...products])
@@ -9,13 +10,9 @@ const NewCountForm = ({ products }) => {
 
   const submitData = async (id, newQuantity) => {
 
-    // const productToUpdate = productsData.find(({ _id }) => _id === id)
-
     const productToUpdateResponse = await fetch('http://localhost:4000/api/products/' + id)
     const productToUpdate = await productToUpdateResponse.json()
-
     const previousQuantity = await productToUpdate.quantity
-
     const quantity = newQuantity
 
     const product = { id, previousQuantity, quantity }
@@ -56,8 +53,10 @@ const NewCountForm = ({ products }) => {
 
   return (
     <>
+
       {productsData.map((product, index) => <div>{product.name} <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} /></div>)}
       <button onClick={(event) => handleSubmit(event)}>Submit</button>
+      <ResetReceive products={products} />
     </>
   )
 }
