@@ -1,4 +1,4 @@
-
+import * as React from 'react'
 import EditableRow from "./EditableRow"
 import ReadOnlyRow from "./ReadOnlyRow"
 import { useState } from 'react'
@@ -21,7 +21,7 @@ const ProductTable = ({ products }) => {
             <div>
                 <table>
                     <tbody>
-                        <tr>
+                        <tr key="header">
                             <th width="200px">SKU</th>
                             <th width="500px">Name</th>
                             <th width="100px">Category</th>
@@ -31,12 +31,12 @@ const ProductTable = ({ products }) => {
                             <th>Quantity</th>
                             <th>+/-</th>
                         </tr>
-                        {products && products.map((product) => (
-                            <>
+                        {products && products.map((product, index) => (
+                            <React.Fragment key={index.toString()}>
                                 {editProductId === product._id ?
                                     <EditableRow product={product} handleCancelClick={handleCancelClick} /> :
                                     <ReadOnlyRow product={product} handleEditClick={handleEditClick} />}
-                            </>
+                            </React.Fragment>
                         ))}
                     </tbody>
                 </table>

@@ -69,7 +69,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
     }
 
     return (
-        <tr>
+        <tr key={product._id}>
             <td>
                 <input
                     type="text"
