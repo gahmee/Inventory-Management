@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useRef } from "react"
 import { useProductsContext } from '../hooks/useProductsContext'
 import ResetReceive from "./ResetReceive"
 
 const NewCountForm = ({ products }) => {
+  const expectedQuantity = products.slice()
   const [productsData, setProductsData] = useState([...products])
   const [error, setError] = useState(null)
   const { dispatch } = useProductsContext()
@@ -54,7 +56,7 @@ const NewCountForm = ({ products }) => {
   return (
     <>
 
-      {productsData.map((product, index) => <div key={index}>{product.name} <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} /></div>)}
+      {productsData.map((product, index) => <div key={index}>{product.name} Quantity: <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} /> Expected: {expectedQuantity[index]["quantity"]}</div>)}
       <button onClick={(event) => handleSubmit(event)}>Submit</button>
       <ResetReceive products={products} />
     </>
