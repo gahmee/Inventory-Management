@@ -56,7 +56,14 @@ const NewCountForm = ({ products }) => {
   return (
     <>
 
-      {productsData.map((product, index) => <div key={index}>{product.name} Quantity: <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} /> Expected: {expectedQuantity[index]["quantity"]}</div>)}
+      {productsData.map((product, index) =>
+        <div key={index}>
+          {product.name}
+          Quantity:
+          <input name="quantity" type="number" value={product.newQuantity} onChange={(event) => handleChange(event, index)} />
+          Expected: {expectedQuantity[index]["quantity"]}
+        </div>
+      )}
       <button onClick={(event) => handleSubmit(event)}>Submit</button>
       <ResetReceive products={products} />
     </>
