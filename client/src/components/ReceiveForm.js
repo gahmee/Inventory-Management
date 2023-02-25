@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import ReceiveRow from "./ReceiveRow"
 import { useProductsContext } from '../hooks/useProductsContext'
+import { ToggleContext } from "../context/ToggleContext"
 import './styles/receive-form.css'
 
 const ReceiveForm = ({ products }) => {
@@ -8,6 +9,8 @@ const ReceiveForm = ({ products }) => {
   const [productsData, setProductsData] = useState([...products])
   const [error, setError] = useState(null)
   const { dispatch } = useProductsContext()
+  const {toggleReceive, setToggleReceive} = useContext(ToggleContext)
+  const {toggleAdd, setToggleAdd} = useContext(ToggleContext)
 
   const handleAddRow = () => {
 
@@ -77,8 +80,9 @@ const ReceiveForm = ({ products }) => {
       <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       {error && <div>{error}</div>}
       <button onClick={() => handleAddRow()}>Add</button>
-      <button onClick={(event) => handleSubmit(event)}>Submit</button>
+      <button onClick={(event) => handleSubmit(event)}>Submit</button>      
       </div>
+      <button class="close-button" onClick={() => setToggleReceive(false)}>x</button>
       </div>
     </div>
   )

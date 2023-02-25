@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useProductsContext } from '../hooks/useProductsContext'
+import { ToggleContext } from "../context/ToggleContext"
 import './styles/product-form.css'
 
 const ProductForm = () => {
@@ -10,6 +11,8 @@ const ProductForm = () => {
     const [condition, setCondition] = useState('')
     const [quantity, setQuantity] = useState('')
     const [error, setError] = useState(null)
+    const {toggleReceive, setToggleReceive} = useContext(ToggleContext)
+    const {toggleAdd, setToggleAdd} = useContext(ToggleContext)
 
     const handleSubmit = async (e) => {
         //prevents refreshing page on submit
@@ -85,6 +88,7 @@ const ProductForm = () => {
             />
             <button>Add Product</button>
             </div>
+            <button class="close-button" onClick={() => setToggleAdd(false)}>x</button>
         </form>
     )
 }
