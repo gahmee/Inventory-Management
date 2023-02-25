@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { ToggleContext } from '../context/ToggleContext'
 
 const Navbar = () => {
+    const {toggleReceive, setToggleReceive} = useContext(ToggleContext)
+    const {toggleAdd, setToggleAdd} = useContext(ToggleContext)
+
     return (
         <header>
             <div className="container">
@@ -8,12 +13,12 @@ const Navbar = () => {
                     <h1>Inventory Management</h1>
                 </Link>
                 <div className='nav-buttons'>
-                    <Link to="receive">
+                    <div onClick={() => setToggleReceive(!toggleReceive)}>
                         <p>Receive</p>
-                    </Link>
-                    <Link to="Add">
+                    </div>
+                    <div onClick={() => setToggleAdd(!toggleAdd)}>
                         <p>Add</p>
-                    </Link>
+                    </div>
                     <Link to="new-count">
                         <p>New Count</p>
                     </Link>

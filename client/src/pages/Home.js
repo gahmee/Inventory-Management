@@ -1,5 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { useProductsContext } from '../hooks/useProductsContext'
+import { ToggleContext } from '../context/ToggleContext'
+import Add from './Add'
+import Receive from './Receive'
 
 
 import ProductTable from '../components/ProductTable'
@@ -7,6 +10,8 @@ import ProductTable from '../components/ProductTable'
 const Home = () => {
 
     const { products, dispatch } = useProductsContext()
+    const {toggleReceive} = useContext(ToggleContext)
+    const {toggleAdd} = useContext(ToggleContext)
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -26,6 +31,8 @@ const Home = () => {
         <div>
             <div className='Products'>
                 {products && <ProductTable products={products} />}
+                {toggleReceive && <Receive/>}
+                {toggleAdd && <Add/>}
             </div>
 
         </div>

@@ -2,11 +2,9 @@ import * as React from 'react'
 import EditableRow from "./EditableRow"
 import ReadOnlyRow from "./ReadOnlyRow"
 import { useState } from 'react'
-import PopUpMenu from './PopUpMenu'
 
 const ProductTable = ({ products }) => {
     const [editProductId, setProductId] = useState(null)
-    const [toggle, setToggle] = useState(false)
 
     const handleEditClick = (event, product) => {
         event.preventDefault();
@@ -42,8 +40,6 @@ const ProductTable = ({ products }) => {
                         ))}
                     </tbody>
                 </table>
-                <PopUpMenu toggle={toggle} setToggle={setToggle} />
-                <button onClick={() => setToggle(true)}>POPUP</button>
             </div>
         </div>
     )
