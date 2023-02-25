@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useProductsContext } from '../hooks/useProductsContext'
+import './styles/product-form.css'
 
 const ProductForm = () => {
     const { dispatch } = useProductsContext()
@@ -45,8 +46,9 @@ const ProductForm = () => {
     }
 
     return (
-        <form className='create' onSubmit={handleSubmit}>
+        <form className='product-form' onSubmit={handleSubmit}>
             {error && <div>{error}</div>}
+            <div className='inner-product-form'>
             <h3>Add a New Product</h3>
             <label>Product Name: </label>
             <input
@@ -82,6 +84,7 @@ const ProductForm = () => {
                 value={quantity}
             />
             <button>Add Product</button>
+            </div>
         </form>
     )
 }

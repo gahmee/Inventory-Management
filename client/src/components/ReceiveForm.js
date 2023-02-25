@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ReceiveRow from "./ReceiveRow"
 import { useProductsContext } from '../hooks/useProductsContext'
+import './styles/receive-form.css'
 
 const ReceiveForm = ({ products }) => {
   const [rowsData, setRowsData] = useState([])
@@ -67,11 +68,18 @@ const ReceiveForm = ({ products }) => {
   }
 
   return (
-    <div>
-      {error && <div>{error}</div>}
+    <div class="receive-form">
+      <div class="inner-receive-form">
+      <div>
+      <h3>Receive a Product: </h3>
+      </div>
+      <div>
       <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
+      {error && <div>{error}</div>}
       <button onClick={() => handleAddRow()}>Add</button>
       <button onClick={(event) => handleSubmit(event)}>Submit</button>
+      </div>
+      </div>
     </div>
   )
 }
