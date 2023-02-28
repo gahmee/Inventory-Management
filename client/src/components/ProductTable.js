@@ -22,14 +22,14 @@ const ProductTable = ({ products }) => {
                 <table>
                     <tbody>
                         <tr key="header">
-                            <th width="200px">SKU</th>
-                            <th width="500px">Name</th>
-                            <th width="100px">Category</th>
-                            <th width="100px">Condition</th>
-                            <th>Previous Quantity</th>
-                            <th>Received</th>
-                            <th>Quantity</th>
-                            <th>+/-</th>
+                            <th width="15%">SKU</th>
+                            <th width="40%">Name</th>
+                            <th width="10%">Category</th>
+                            <th width="10%">Condition</th>
+                            <th width="5%">Previous Quantity</th>
+                            <th width="5%">Received</th>
+                            <th width="5%">Quantity</th>
+                            <th width="5%">+/-</th>
                         </tr>
                         {products && products.map((product, index) => (
                             <React.Fragment key={index.toString()}>

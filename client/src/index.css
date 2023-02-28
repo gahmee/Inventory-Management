@@ -39,10 +39,15 @@ header a {
   text-decoration: none;
 }
 
-.pages {}
+.pages {
+  height: 100vh;
+  width: 100%;
+}
+
 
 .product-table {
   height: 100%;
+  width: 100%;
 }
 
 .product-table th {
