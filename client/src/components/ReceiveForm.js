@@ -77,12 +77,15 @@ const ReceiveForm = ({ products }) => {
       <div>
       <h3>Receive a Product: </h3>
       </div>
-      <div>
+      <div id="products">
       <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       {error && <div>{error}</div>}
       <button onClick={() => handleAddRow()}>Add</button>
-      <button onClick={(event) => handleSubmit(event)}>Submit</button>      
       </div>
+                
+      <div id="receive-submit-button">
+      <button onClick={(event) => handleSubmit(event)}>Submit</button>
+      </div>      
       </div>
     </div>
   )

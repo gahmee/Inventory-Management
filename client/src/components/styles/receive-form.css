@@ -10,6 +10,7 @@
 }
 
 .inner-receive-form {
+    display: flex;
     background-color: grey;
     min-height: 30%;
     min-width: 30%;
@@ -18,6 +19,16 @@
     align-items: center;
     padding: 10px;
     border-radius: 10px;
+}
+
+#products {
+    min-height: 200px;
+}
+
+#receive-submit-button {
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
 }
 
 .close-button {
