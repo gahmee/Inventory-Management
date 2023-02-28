@@ -8,7 +8,7 @@ let productSchema = new mongoose.Schema({
     previousQuantity: { type: Number, required: false },
     received: { type: Number, required: false },
     quantity: { type: Number, required: true },
-    newQuantity: { type: Number, required: true },
+    newQuantity: { type: Number, required: false },
     gainLoss: { type: Number, required: false },
 })
 const Product = mongoose.model('Product', productSchema)
