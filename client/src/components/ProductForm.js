@@ -11,7 +11,6 @@ const ProductForm = () => {
     const [condition, setCondition] = useState('')
     const [quantity, setQuantity] = useState('')
     const [error, setError] = useState(null)
-    const {toggleReceive, setToggleReceive} = useContext(ToggleContext)
     const {toggleAdd, setToggleAdd} = useContext(ToggleContext)
 
     const handleSubmit = async (e) => {
@@ -49,9 +48,9 @@ const ProductForm = () => {
     }
 
     return (
-        <form className='product-form' onSubmit={handleSubmit}>
-            {error && <div>{error}</div>}
+        <form className='product-form' onSubmit={handleSubmit}>            
             <div className='inner-product-form'>
+            <button class="close-button" onClick={() => setToggleAdd(false)}>X</button>
             <h3>Add a New Product</h3>
             <label>Product Name: </label>
             <input
@@ -86,9 +85,10 @@ const ProductForm = () => {
                 onChange={(e) => setQuantity(e.target.value)}
                 value={quantity}
             />
+            {error && <div>{error}</div>}
             <button>Add Product</button>
             </div>
-            <button class="close-button" onClick={() => setToggleAdd(false)}>x</button>
+            
         </form>
     )
 }

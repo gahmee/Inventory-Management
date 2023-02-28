@@ -73,6 +73,7 @@ const ReceiveForm = ({ products }) => {
   return (
     <div class="receive-form">
       <div class="inner-receive-form">
+      <button class="close-button" onClick={() => setToggleReceive(false)}>X</button>
       <div>
       <h3>Receive a Product: </h3>
       </div>
@@ -82,7 +83,6 @@ const ReceiveForm = ({ products }) => {
       <button onClick={() => handleAddRow()}>Add</button>
       <button onClick={(event) => handleSubmit(event)}>Submit</button>      
       </div>
-      <button class="close-button" onClick={() => setToggleReceive(false)}>x</button>
       </div>
     </div>
   )
