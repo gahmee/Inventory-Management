@@ -6,13 +6,14 @@
 }
 
 body {
-  background: #f1f1f1;
+  background: #0D1117;
   margin: 0;
   font-family: "Quicksand";
 }
 
 header {
-  background: #fff;
+  background: #212933;
+  color: white;
 }
 
 header .container {
@@ -26,6 +27,7 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 }
 
 .nav-buttons p {
@@ -35,7 +37,7 @@ header .container {
 }
 
 header a {
-  color: #333;
+  color: white;
   text-decoration: none;
 }
 
@@ -46,21 +48,36 @@ header a {
 
 
 .product-table {
+  color: white;
   height: 100%;
   width: 100%;
+  border: none;
 }
 
 .product-table th {
   text-align: left;
+  background-color:rgb(0, 0, 0);
 }
+
+table, tr, td, th{
+  border-collapse: collapse;
+  padding: 10px;
+  border: 1px solid #2c384b;  
+  }
 
 .product-table tr:nth-child(even) {
   text-align: left;
-  background-color: rgb(228, 228, 228);
+  background-color: #1c2430;
+}
+
+.product-table tr:nth-child(odd) {
+  text-align: left;
+  background-color: #131920;
 }
 
 .product-table tr {
   text-align: left;
   border-style: none;
   padding: 10em;
+
 }
