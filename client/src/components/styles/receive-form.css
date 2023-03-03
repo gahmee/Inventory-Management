@@ -47,8 +47,13 @@
     border: none;
 }
 
+.close-button:hover {
+    background-color: darkred;
+    cursor: pointer;
+}
+
 .submit-button {
-    background-color: grey; /* Green */
+    background-color: grey;
     border: none;
     color: white;
     padding: 10px 10px;
@@ -56,9 +61,19 @@
     display: inline-block;
 }
 
+.submit-button:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
 .add-button {
     background-color: greenyellow;
     padding: 5px 10px;
     border-radius: 100%;
     border: none;
+}
+
+.add-button:hover {
+    background-color: green;
+    cursor: pointer;
 }
