@@ -48,8 +48,8 @@ const ProductForm = () => {
     }
 
     return (
-        <form className='product-form' onSubmit={handleSubmit}>            
-            <div className='inner-product-form'>
+        <form className='pop-up-menu' onSubmit={handleSubmit}>            
+            <div className='inner-pop-up-menu'>
             <button class="close-button" onClick={() => setToggleAdd(false)}>X</button>
             <h3>Add a New Product</h3>
             <label>Product Name: </label>
@@ -86,7 +86,7 @@ const ProductForm = () => {
                 value={quantity}
             />
             {error && <div>{error}</div>}
-            <button>Add Product</button>
+            <button class="submit-button">Submit</button>
             </div>
             
         </form>

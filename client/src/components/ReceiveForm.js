@@ -71,20 +71,20 @@ const ReceiveForm = ({ products }) => {
   }
 
   return (
-    <div class="receive-form">
-      <div class="inner-receive-form">
-      <button class="close-button" onClick={() => setToggleReceive(false)}>X</button>
+    <div class="pop-up-menu ">
+      <div class="inner-pop-up-menu">
+      <button class="close-button" onClick={() => setToggleReceive(false)}>x</button>
       <div>
-      <h3>Receive a Product: </h3>
+      <h2>Receive a Product: </h2>
       </div>
       <div id="products">
       <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       {error && <div>{error}</div>}
-      <button onClick={() => handleAddRow()}>Add</button>
+      <button class="add-button" onClick={() => handleAddRow()}>+</button>
       </div>
                 
       <div id="receive-submit-button">
-      <button onClick={(event) => handleSubmit(event)}>Submit</button>
+      <button class="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
       </div>      
       </div>
     </div>

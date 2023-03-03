@@ -1,4 +1,4 @@
-.receive-form {
+.pop-up-menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +9,8 @@
     align-items: center;
 }
 
-.inner-receive-form {
+.inner-pop-up-menu {
     display: flex;
-    background-color: grey;
     min-height: 30%;
     min-width: 30%;
     display: flex;
@@ -19,10 +18,15 @@
     align-items: center;
     padding: 10px;
     border-radius: 10px;
+    background: #0D1117;
+    border: 1px solid;
+    border-color: #384861;
+    color: white;
+    box-shadow: 0px 0px 30px black;
 }
 
 #products {
-    min-height: 200px;
+    min-height: 300px;
 }
 
 #receive-submit-button {
@@ -32,7 +36,29 @@
 }
 
 .close-button {
+    display: inline-block;
     margin: -10px;
     position: relative;
     left: 50%;
+    padding: 5px 10px;
+    border-radius: 100%;
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.submit-button {
+    background-color: grey; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+.add-button {
+    background-color: greenyellow;
+    padding: 5px 10px;
+    border-radius: 100%;
+    border: none;
 }
