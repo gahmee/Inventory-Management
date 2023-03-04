@@ -3,6 +3,8 @@ import ReceiveRow from "./ReceiveRow"
 import { useProductsContext } from '../hooks/useProductsContext'
 import { ToggleContext } from "../context/ToggleContext"
 import './styles/receive-form.css'
+import CloseIcon from '@mui/icons-material/Close';
+import AddIcon from '@mui/icons-material/Add';
 
 const ReceiveForm = ({ products }) => {
   const [rowsData, setRowsData] = useState([])
@@ -73,15 +75,16 @@ const ReceiveForm = ({ products }) => {
   return (
     <div class="pop-up-menu ">
       <div class="inner-pop-up-menu">
-      <button class="close-button" onClick={() => setToggleReceive(false)}>x</button>
+      <div class="close-button" onClick={() => setToggleReceive(false)}><CloseIcon sx={{ fontSize: 18 }}/></div>
       <div>
       <h2>Receive a Product: </h2>
       </div>
       <div id="products">
       <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
       {error && <div>{error}</div>}
-      <button class="add-button" onClick={() => handleAddRow()}>+</button>
+      <div class="add-button" onClick={() => handleAddRow()}><AddIcon sx={{ fontSize: 20 }}/></div>     
       </div>
+      
                 
       <div id="receive-submit-button">
       <button class="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>

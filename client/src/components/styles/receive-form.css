@@ -26,7 +26,15 @@
 }
 
 #products {
+    display: flex;
+    flex-direction: column;
     min-height: 300px;
+}
+
+.receive-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #receive-submit-button {
@@ -36,13 +44,16 @@
 }
 
 .close-button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: -10px;
     position: relative;
     left: 50%;
-    padding: 5px 10px;
-    border-radius: 100%;
-    background-color: red;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(82, 1, 1);
     color: white;
     border: none;
 }
@@ -67,13 +78,76 @@
 }
 
 .add-button {
-    background-color: greenyellow;
-    padding: 5px 10px;
-    border-radius: 100%;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #142b02;;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    border-radius: 50%;
     border: none;
 }
 
 .add-button:hover {
-    background-color: green;
+    background-color: #316906;
+    cursor: pointer;
+}
+
+.select {
+    padding: 10px;
+    margin: 2px;
+    height: 50px;
+    background:#212933;
+    border: none;
+    color: white;   
+    cursor: pointer;
+}
+
+.select:hover {
+    outline: solid 1px;
+    outline-color: #384861;
+}
+
+
+.input {
+    margin: 2px;
+    height: 50px;
+    width: 50px;
+    background:#212933;
+    border: none;
+    color: white;
+    text-align: center;
+
+}
+
+.input:hover {
+    outline: solid 1px;
+    outline-color: #384861;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.delete-button:hover {
+    background-color: #384861;
     cursor: pointer;
 }
