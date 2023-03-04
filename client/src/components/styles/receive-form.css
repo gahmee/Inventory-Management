@@ -96,7 +96,7 @@
     cursor: pointer;
 }
 
-.select {
+select {
     padding: 10px;
     margin: 2px;
     height: 50px;
@@ -106,9 +106,26 @@
     cursor: pointer;
 }
 
-.select:hover {
+
+#new-product-condition-select {
+    height: 50px;
+    width: 250px;
+}
+
+select:hover {
     outline: solid 1px;
     outline-color: #384861;
+    cursor: pointer;
+}
+
+input {
+    margin: 2px;
+    height: 50px;
+    width: 250px;
+    background:#212933;
+    border: none;
+    color: white;
+    text-align: center;
 }
 
 
@@ -123,7 +140,7 @@
 
 }
 
-.input:hover {
+input:hover {
     outline: solid 1px;
     outline-color: #384861;
 }
