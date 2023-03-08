@@ -30,6 +30,13 @@ header .container {
   color: white;
 }
 
+.nav-buttons p:hover{
+  cursor: pointer;
+  color: black;
+  background-color: white;
+  border-radius: 5%;
+}
+
 .nav-buttons p {
   padding: 10px 20px;
   display: flex;
