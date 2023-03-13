@@ -1,4 +1,4 @@
-
+import EditIcon from '@mui/icons-material/Edit';
 
 const ReadOnlyRow = ({ product, handleEditClick }) => {
   return (
@@ -16,7 +16,7 @@ const ReadOnlyRow = ({ product, handleEditClick }) => {
           type="button"
           onClick={(event) => handleEditClick(event, product)}
         >
-          Edit
+          <EditIcon/>
         </button>
       </td>
     </tr>

@@ -1,6 +1,7 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useState } from 'react'
 
+
 const EditableRow = ({ product, handleCancelClick }) => {
     const { dispatch } = useProductsContext()
     const [name, setName] = useState(product.name)
@@ -131,24 +132,29 @@ const EditableRow = ({ product, handleCancelClick }) => {
                     onChange={(e) => setQuantity(e.target.value)}
                 ></input>
             </td>
+            <td>
+            {product.quantity - (product.previousQuantity + product.received)}
+            </td>
+            <td>
             <button
                 type="button"
                 onClick={(event) => handleCancelClick(event)}
             >
-                Cancel
+                C
             </button>
             <button
                 type="button"
                 onClick={(event) => handleSubmit(event, product)}
             >
-                Submit
+                S
             </button>
             <button
                 type="button"
                 onClick={(event) => handleDelete(event, product)}
             >
-                Delete
+                D
             </button>
+            </td>
         </tr>
     )
 }
