@@ -1,5 +1,8 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useState } from 'react'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const EditableRow = ({ product, handleCancelClick }) => {
@@ -140,19 +143,19 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 type="button"
                 onClick={(event) => handleCancelClick(event)}
             >
-                C
+                <CancelIcon/>
             </button>
             <button
                 type="button"
                 onClick={(event) => handleSubmit(event, product)}
             >
-                S
+                <CheckCircleIcon/>
             </button>
             <button
                 type="button"
                 onClick={(event) => handleDelete(event, product)}
             >
-                D
+                <DeleteForeverIcon/>
             </button>
             </td>
         </tr>
