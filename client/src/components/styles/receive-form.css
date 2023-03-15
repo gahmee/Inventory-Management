@@ -126,18 +126,27 @@ input {
     border: none;
     color: white;
     text-align: center;
+    font-family: "Quicksand";
+    font-size: 16px;
 }
 
 
-.input {
+.edit-input {
     margin: 2px;
     height: 50px;
     width: 50px;
     background:#212933;
     border: none;
     color: white;
-    text-align: center;
+    text-align: left;
+}
 
+#name-field {
+    width: 500px;
+}
+
+#sku-field, #category-field {
+    width: 150px;
 }
 
 input:hover {
