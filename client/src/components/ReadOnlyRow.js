@@ -2,7 +2,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const ReadOnlyRow = ({ product, handleEditClick }) => {
   return (
-    <tr key={product._id}>
+    <tr key={product._id} onClick={(event) => handleEditClick(event, product)}>
       <td>{product.SKU}</td>
       <td>{product.name}</td>
       <td>{product.category}</td>
@@ -12,12 +12,11 @@ const ReadOnlyRow = ({ product, handleEditClick }) => {
       <td>{product.quantity}</td>
       <td>{product.quantity - (product.previousQuantity + product.received)}</td>
       <td>
-        <button
-          type="button"
+        {/* <div
           onClick={(event) => handleEditClick(event, product)}
         >
           <EditIcon/>
-        </button>
+        </div> */}
       </td>
     </tr>
   )
