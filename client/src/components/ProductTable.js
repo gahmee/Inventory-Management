@@ -26,16 +26,19 @@ const ProductTable = ({ products }) => {
     };
 
     const handleContextMenu = (event) => {
-        console.log('test')
         event.preventDefault()
         const {pageX, pageY} = event
         setContextMenu({show: true, x: pageX, y: pageY})
     }
 
+    const closeContextMenu = () => {
+        setContextMenu(initialContextMenu)
+    }
+
     return (
         <div className="product-table">        
             <div>
-            {contextMenu.show && <ContextMenu x={contextMenu.x} y={contextMenu.y}/>}           
+            {contextMenu.show && <ContextMenu x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>}           
                 <table>
                 
                     <tbody >
