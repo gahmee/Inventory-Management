@@ -1,11 +1,18 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useState } from 'react'
+import ContextMenu from './ContextMenu';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const EditableRow = ({ product, handleCancelClick }) => {
+    const initialContextMenu = {
+        show: false,
+        x: 0,
+        y: 0
+    }
+
     const { dispatch } = useProductsContext()
     const [name, setName] = useState(product.name)
     const [SKU, setSKU] = useState(product.SKU)
@@ -15,6 +22,9 @@ const EditableRow = ({ product, handleCancelClick }) => {
     const [received, setReceived] = useState(product.received)
     const [quantity, setQuantity] = useState(product.quantity)
     const [error, setError] = useState(null)
+
+    const [contextMenu, setContextMenu] = useState(initialContextMenu)
+    
 
     const handleSubmit = async (e, p) => {
         //prevents refreshing page on submit
@@ -72,8 +82,18 @@ const EditableRow = ({ product, handleCancelClick }) => {
         }
     }
 
+    const handleContextMenu = (event) => {
+        event.preventDefault()
+        const {pageX, pageY} = event
+        setContextMenu({show: true, x: pageX, y: pageY})
+    }
+
+    const closeContextMenu = () => {
+        setContextMenu(initialContextMenu)
+    }
+
     return (
-        <tr key={product._id}>
+        <tr key={product._id} onContextMenu={handleContextMenu}>
             <td>
                 <input
                     type="text"
@@ -164,8 +184,9 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 type="button"
                 onClick={(event) => handleDelete(event, product)}
             >
-                <DeleteForeverIcon/>
+                <DeleteForeverIcon/>             
             </button>
+            {contextMenu.show && <ContextMenu x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>} 
             </td>
         </tr>
     )

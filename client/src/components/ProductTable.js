@@ -1,19 +1,11 @@
 import * as React from 'react'
 import EditableRow from "./EditableRow"
 import ReadOnlyRow from "./ReadOnlyRow"
-import ContextMenu from './ContextMenu'
 import { useState } from 'react'
 
 const ProductTable = ({ products }) => {
 
-    const initialContextMenu = {
-        show: false,
-        x: 0,
-        y: 0
-    }
-
     const [editProductId, setProductId] = useState(null)
-    const [contextMenu, setContextMenu] = useState(initialContextMenu)
 
     const handleEditClick = (event, product) => {
         event.preventDefault();
@@ -25,20 +17,10 @@ const ProductTable = ({ products }) => {
         setProductId(null);
     };
 
-    const handleContextMenu = (event) => {
-        event.preventDefault()
-        const {pageX, pageY} = event
-        setContextMenu({show: true, x: pageX, y: pageY})
-    }
-
-    const closeContextMenu = () => {
-        setContextMenu(initialContextMenu)
-    }
 
     return (
         <div className="product-table">        
-            <div>
-            {contextMenu.show && <ContextMenu x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>}           
+            <div>           
                 <table>
                 
                     <tbody >
@@ -55,8 +37,8 @@ const ProductTable = ({ products }) => {
                         {products && products.map((product, index) => (
                             <React.Fragment key={index.toString()}>
                                 {editProductId === product._id ?
-                                    <EditableRow product={product} handleContextMenu={handleContextMenu} handleCancelClick={handleCancelClick} /> :
-                                    <ReadOnlyRow product={product} handleContextMenu={handleContextMenu} handleEditClick={handleEditClick} />}
+                                    <EditableRow product={product} handleCancelClick={handleCancelClick} /> :
+                                    <ReadOnlyRow product={product} handleEditClick={handleEditClick} />}
                             </React.Fragment>
                         ))}
                     </tbody>
