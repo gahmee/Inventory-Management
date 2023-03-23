@@ -1,9 +1,6 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useState } from 'react'
 import ContextMenu from './ContextMenu';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import CancelIcon from '@mui/icons-material/Cancel';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const EditableRow = ({ product, handleCancelClick }) => {
@@ -168,25 +165,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
             {product.quantity - (product.previousQuantity + product.received)}
             </td>
             <td>
-            <button
-                type="button"
-                onClick={(event) => handleCancelClick(event)}
-            >
-                <CancelIcon/>
-            </button>
-            <button
-                type="button"
-                onClick={(event) => handleSubmit(event, product)}
-            >
-                <CheckCircleIcon/>
-            </button>
-            <button
-                type="button"
-                onClick={(event) => handleDelete(event, product)}
-            >
-                <DeleteForeverIcon/>             
-            </button>
-            {contextMenu.show && <ContextMenu x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>} 
+            {contextMenu.show && <ContextMenu product={product} handleCancelClick={handleCancelClick} handleSubmit={handleSubmit} handleDelete={handleDelete} x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>} 
             </td>
         </tr>
     )

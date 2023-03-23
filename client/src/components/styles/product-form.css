@@ -43,3 +43,12 @@
     position: relative;
     left: 50%;
 }
+
+#context-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    border-radius: 10px;
+    background-color: green;
+}
