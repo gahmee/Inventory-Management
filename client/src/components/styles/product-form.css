@@ -48,7 +48,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
-    border-radius: 10px;
-    background-color: green;
+    width: 7%;
+    border-radius: 5px;
+    background-color: #0D1117;
+}
+
+.context-menu-selection {
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+.context-menu-selection:hover {
+    background-color: #384861;  
+    cursor: pointer;
+    border-radius: 5px;
 }

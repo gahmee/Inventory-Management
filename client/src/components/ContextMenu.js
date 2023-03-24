@@ -6,9 +6,9 @@ const ContextMenu = ({x, y, product, handleCancelClick, handleSubmit, handleDele
   useOnClickOutside(contextMenuRef, closeContextMenu)
   return (
     <div id='context-menu'style={{position: 'absolute', top: `${y}px`, left: `${x}px`}} ref={contextMenuRef} onClick={closeContextMenu}>
-      <button onClick={(event) => handleCancelClick(event)}>Cancel</button>
-      <button onClick={(event) => handleSubmit(event, product)}>Submit</button>
-      <button onClick={(event) => handleDelete(event, product)}>Delete</button>
+      <div className="context-menu-selection" onClick={(event) => handleCancelClick(event)}>Cancel</div>
+      <div className="context-menu-selection" onClick={(event) => handleSubmit(event, product)}>Submit</div>
+      <div className="context-menu-selection" onClick={(event) => handleDelete(event, product)}>Delete</div>
     </div>
   )
 }
