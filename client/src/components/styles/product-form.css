@@ -64,3 +64,11 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+#context-menu-delete-button:hover{
+    background-color: red;
+}
+
+#context-menu-submit-button:hover{
+    background-color: green;
+}

@@ -89,6 +89,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
         setContextMenu(initialContextMenu)
     }
 
+
     return (
         <tr key={product._id} onContextMenu={handleContextMenu}>
             <td>

@@ -17,7 +17,6 @@ const ProductTable = ({ products }) => {
         setProductId(null);
     };
 
-
     return (
         <div className="product-table">        
             <div>           
