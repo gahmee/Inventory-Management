@@ -88,3 +88,8 @@ table, tr, td, th{
   padding: 10em;
 
 }
+
+.product-table tr:hover{
+  background-color: #2c384b;
+  cursor: pointer;
+}
