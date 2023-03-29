@@ -9,10 +9,9 @@ const ReadOnlyRow = ({ product, handleEditClick, handleContextMenu }) => {
       <td>{product.condition}</td>
       <td>{product.previousQuantity}</td>
       <td>{product.received}</td>
+      <td>{product.previousQuantity + product.received}</td>     
       <td>{product.quantity}</td>
       <td>{product.quantity - (product.previousQuantity + product.received)}</td>
-      <td>
-      </td>
     </tr>
   )
 }

@@ -153,6 +153,9 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 ></input>
             </td>
             <td>
+               {product.previousQuantity + product.received} 
+            </td>
+            <td>
                 <input
                     type="text"
                     required="required"
@@ -164,9 +167,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
             </td>
             <td>
             {product.quantity - (product.previousQuantity + product.received)}
-            </td>
-            <td>
-            {contextMenu.show && <ContextMenu product={product} handleCancelClick={handleCancelClick} handleSubmit={handleSubmit} handleDelete={handleDelete} x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>} 
+            {contextMenu.show && <ContextMenu product={product} handleCancelClick={handleCancelClick} handleSubmit={handleSubmit} handleDelete={handleDelete} x={contextMenu.x} y={contextMenu.y} closeContextMenu={closeContextMenu}/>}
             </td>
         </tr>
     )

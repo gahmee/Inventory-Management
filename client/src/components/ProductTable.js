@@ -28,9 +28,10 @@ const ProductTable = ({ products }) => {
                             <th width="40%">Name</th>
                             <th width="10%">Category</th>
                             <th width="10%">Condition</th>
-                            <th width="5%">Previous Quantity</th>
+                            <th width="5%">Previous</th>
                             <th width="5%">Received</th>
-                            <th width="5%">Quantity</th>
+                            <th width="5%">Expected</th>
+                            <th width="5%">Counted</th>
                             <th width="5%">+/-</th>
                         </tr>
                         {products && products.map((product, index) => (
