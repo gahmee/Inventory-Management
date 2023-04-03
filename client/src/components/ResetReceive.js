@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useProductsContext } from '../hooks/useProductsContext'
 
-const ResetReceive = ({ products }) => {
+const ResetReceive = ({ products, handleResetToggle }) => {
     const [productsData, setProductsData] = useState([...products])
     const [error, setError] = useState(null)
     const { dispatch } = useProductsContext()
+    const [confirmedMessage, setConfirmedMessage] = useState(false)
 
     const submitData = async (id) => {
         const received = 0
@@ -35,10 +36,18 @@ const ResetReceive = ({ products }) => {
     const handleReset = (event) => {
         event.preventDefault()
         productsData.forEach((product) => submitData(product._id))
+        setConfirmedMessage(true)
     }
 
     return (
-        <div><button onClick={(event) => handleReset(event)}>Reset Received</button></div>
+        <div id="reset-receive-confirmation">
+            {!confirmedMessage && <div id="reset-receive-dialogue-box"><p>Are you sure? This process cannot be undone.</p></div>}
+            {confirmedMessage && <div id="reset-receive-confirmation-box"><p>Received quantities have been reset!</p></div>}           
+            <div>
+                <button onClick={(event) => handleReset(event)}>Reset Received</button>
+                <button onClick={handleResetToggle}>Cancel</button>
+            </div>
+        </div>
     )
 }
 

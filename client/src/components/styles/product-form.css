@@ -72,3 +72,47 @@
 #context-menu-submit-button:hover{
     background-color: green;
 }
+
+#new-count-form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#new-count-submit-button {
+    padding: 20px;
+    margin: 20px;
+}
+
+#new-count-reset-button {
+    padding: 10px;
+}
+
+#reset-receive-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+#reset-receive-dialogue-box {
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: pink;
+    color: black;
+    font-weight: bold;
+}
+
+#reset-receive-confirmation-box {
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid green;
+    border-radius: 10px;
+    background-color: lightgreen;
+    color: black;
+    font-weight: bold;   
+}

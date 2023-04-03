@@ -8,6 +8,7 @@ const NewCountForm = ({ products }) => {
   const [productsData, setProductsData] = useState([...products])
   const [error, setError] = useState(null)
   const { dispatch } = useProductsContext()
+  const [toggleResetReceived, setToggleResetReceived] = useState(false);
 
 
   const submitData = async (id, newQuantity) => {
@@ -52,6 +53,10 @@ const NewCountForm = ({ products }) => {
     setProductsData(productInput)
   }
 
+  const handleReset = () => {
+    setToggleResetReceived(!toggleResetReceived)
+  }
+
 
   return (
     <>
@@ -73,9 +78,12 @@ const NewCountForm = ({ products }) => {
         </tr>
       )}
     </table>
+      <div id="new-count-form-buttons">
+      <button id="new-count-submit-button"className="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
+      {!toggleResetReceived && <button id="new-count-reset-button" onClick={handleReset} >Reset Received</button>}
+      {toggleResetReceived && <ResetReceive handleResetToggle={handleReset} products={products} />}
+      </div>
       
-      <button onClick={(event) => handleSubmit(event)}>Submit</button>
-      <ResetReceive products={products} />
     </>
   )
 }
