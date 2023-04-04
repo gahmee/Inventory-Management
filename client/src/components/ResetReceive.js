@@ -41,12 +41,19 @@ const ResetReceive = ({ products, handleResetToggle }) => {
 
     return (
         <div id="reset-receive-confirmation">
-            {!confirmedMessage && <div id="reset-receive-dialogue-box"><p>Are you sure? This process cannot be undone.</p></div>}
-            {confirmedMessage && <div id="reset-receive-confirmation-box"><p>Received quantities have been reset!</p></div>}           
+            {!confirmedMessage && 
+            <div id="reset-receive-dialogue-box">
+                <h3>Are you sure? This process cannot be undone.</h3>
+                <div id="reset-receive-dialogue-box-buttons">
+                <button id="reset-receive-button" onClick={(event) => handleReset(event)}>Yes, Reset</button>
+                <button id="reset-receive-cancel-button" onClick={handleResetToggle}>Cancel</button>
+                </div>
+            </div>}
+            {confirmedMessage && <div id="reset-receive-confirmation-box"><p>Received quantities have been reset!</p></div>}
             <div>
-                <button onClick={(event) => handleReset(event)}>Reset Received</button>
-                <button onClick={handleResetToggle}>Cancel</button>
+            
             </div>
+                      
         </div>
     )
 }

@@ -87,7 +87,18 @@
 }
 
 #new-count-reset-button {
-    padding: 10px;
+    border-radius: 5px;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    display: inline-block;  
+}
+
+#new-count-reset-button:hover{
+    cursor: pointer;
+    background-color: pink;
 }
 
 #reset-receive-confirmation {
@@ -115,4 +126,27 @@
     background-color: lightgreen;
     color: black;
     font-weight: bold;   
+}
+
+#reset-receive-button {
+    padding: 10px
+}
+
+#reset-receive-button:hover{
+    cursor: pointer;
+}
+
+#reset-receive-cancel-button {
+    padding: 10px
+}
+
+#reset-receive-cancel-button:hover{
+    cursor: pointer;
+}
+
+#reset-receive-dialogue-box-buttons {
+    display: flex;
+    justify-content: space-around;
+    font-weight: normal;
+    padding: 20px;
 }
