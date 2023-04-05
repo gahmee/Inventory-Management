@@ -2,7 +2,6 @@ import { useState, useContext } from "react"
 import ReceiveRow from "./ReceiveRow"
 import { useProductsContext } from '../hooks/useProductsContext'
 import { ToggleContext } from "../context/ToggleContext"
-import './styles/receive-form.css'
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 
