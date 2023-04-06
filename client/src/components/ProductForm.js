@@ -52,47 +52,47 @@ const ProductForm = () => {
     return (
         <form className='pop-up-menu' onSubmit={handleSubmit}>            
             <div className='inner-pop-up-menu'>
-            <button class="close-button" onClick={() => setToggleAdd(false)}><CloseIcon sx={{ fontSize: 18 }}/></button>
-            <h3>Add a New Product</h3>
-            <div id="new-product-form">
-            <label>Product Name: </label>            
-            <input
-                type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-            />
-            <label>SKU: </label>
-            <input
-                type="text"
-                onChange={(e) => setSKU(e.target.value)}
-                value={SKU}
-            />
-            <label>Category: </label>
-            <input
-                type="text"
-                onChange={(e) => setCategory(e.target.value)}
-                value={category}
-            />
-            <label>Condition: </label>
-            <select id="new-product-condition-select" onChange={(e) => setCondition(e.target.value)}>
-                <option disabled={true} value="">
-                    --Choose and option--
-                </option>
-                <option value="Resell">Resell</option>
-                <option value="Instructor">Instructor</option>
-                <option value="Quarantine">Quarantine</option>
-            </select>
-            <label>Quantity: </label>
-            <input
-                type="number"
-                onChange={(e) => setQuantity(e.target.value)}
-                value={quantity}
-            />
-            {error && <div>{error}</div>}
-            </div>
-            <div id="new-product-submit-button">
-            <button class="submit-button">Submit</button>
-            </div>
+                <button className="close-button" onClick={() => setToggleAdd(false)}><CloseIcon sx={{ fontSize: 18 }}/></button>
+                <h3>Add a New Product</h3>
+                <div id="new-product-form">
+                    <label>Product Name: </label>            
+                    <input
+                        type="text"
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                    />
+                    <label>SKU: </label>
+                    <input
+                        type="text"
+                        onChange={(e) => setSKU(e.target.value)}
+                        value={SKU}
+                    />
+                    <label>Category: </label>
+                    <input
+                        type="text"
+                        onChange={(e) => setCategory(e.target.value)}
+                        value={category}
+                    />
+                    <label>Condition: </label>
+                    <select id="new-product-condition-select" onChange={(e) => setCondition(e.target.value)}>
+                        <option disabled={true} value="">
+                            --Choose and option--
+                        </option>
+                        <option value="Resell">Resell</option>
+                        <option value="Instructor">Instructor</option>
+                        <option value="Quarantine">Quarantine</option>
+                    </select>
+                    <label>Quantity: </label>
+                    <input
+                        type="number"
+                        onChange={(e) => setQuantity(e.target.value)}
+                        value={quantity}
+                    />
+                    {error && <div>{error}</div>}
+                </div>
+                <div id="new-product-submit-button">
+                <button className="submit-button">Submit</button>
+                </div>
             </div>
             
         </form>

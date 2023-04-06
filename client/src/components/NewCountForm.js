@@ -79,9 +79,9 @@ const NewCountForm = ({ products }) => {
       )}
     </table>
       <div id="new-count-form-buttons">
-      <button id="new-count-submit-button"className="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
-      {!toggleResetReceived && <button id="new-count-reset-button" onClick={handleReset} >Reset Received</button>}
-      {toggleResetReceived && <ResetReceive handleResetToggle={handleReset} products={products} />}
+        <button id="new-count-submit-button"className="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
+        {!toggleResetReceived && <button id="new-count-reset-button" onClick={handleReset} >Reset Received</button>}
+        {toggleResetReceived && <ResetReceive handleResetToggle={handleReset} products={products} />}
       </div>
       
     </>

@@ -96,7 +96,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     id="sku-field"
                     name="SKU"
                     value={SKU}
@@ -107,7 +107,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     id="name-field"
                     name="name"
                     value={name}
@@ -118,7 +118,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     id="category-field"
                     name="category"
                     value={category}
@@ -136,7 +136,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     name="previousQuantity"
                     value={previousQuantity}
                     onChange={(e) => setPreviousQuantity(e.target.value)}
@@ -146,7 +146,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     name="received"
                     value={received}
                     onChange={(e) => setReceived(e.target.value)}
@@ -159,7 +159,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
                 <input
                     type="text"
                     required="required"
-                    class="edit-input"
+                    className="edit-input"
                     name="quantity"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}

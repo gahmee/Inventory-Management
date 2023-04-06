@@ -72,22 +72,22 @@ const ReceiveForm = ({ products }) => {
   }
 
   return (
-    <div class="pop-up-menu ">
-      <div class="inner-pop-up-menu">
-      <div class="close-button" onClick={() => setToggleReceive(false)}><CloseIcon sx={{ fontSize: 18 }}/></div>
-      <div>
-      <h2>Receive a Product: </h2>
-      </div>
-      <div id="products">
-      <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
-      {error && <div>{error}</div>}
-      <div class="add-button" onClick={() => handleAddRow()}><AddIcon sx={{ fontSize: 20 }}/></div>     
-      </div>
-      
-                
-      <div id="receive-submit-button">
-      <button class="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
-      </div>      
+    <div className="pop-up-menu ">
+      <div className="inner-pop-up-menu">
+          <div className="close-button" onClick={() => setToggleReceive(false)}><CloseIcon sx={{ fontSize: 18 }}/></div>
+          <div>
+            <h2>Receive a Product: </h2>
+          </div>
+        <div id="products">
+          <ReceiveRow products={productsData} rowsData={rowsData} deleteRow={deleteRow} handleChange={handleChange} />
+          {error && <div>{error}</div>}
+          <div className="add-button" onClick={() => handleAddRow()}><AddIcon sx={{ fontSize: 20 }}/></div>     
+        </div>
+        
+                  
+        <div id="receive-submit-button">
+          <button class="submit-button" onClick={(event) => handleSubmit(event)}>Submit</button>
+        </div>      
       </div>
     </div>
   )
