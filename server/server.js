@@ -15,9 +15,9 @@ app.use((req, res, next) => {
 })
 
 
-app.use(express.static(path.join(__dirname, "/client/build")))
+app.use(express.static(path.join(__dirname, "../client/build")))
 app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
 )
 
 
@@ -29,7 +29,7 @@ app.use('/api/products', productRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT || 4000, () => {
-            console.log('connected to database and listening on port', process.env.PORT, __dirname)
+            console.log('connected to database and listening on port', process.env.PORT)
         })
     })
     .catch((error) => {
