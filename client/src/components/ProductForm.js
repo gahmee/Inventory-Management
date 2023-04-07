@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { useProductsContext } from '../hooks/useProductsContext'
 import { ToggleContext } from "../context/ToggleContext"
+import { API_URL } from '../config'
 
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -21,7 +22,7 @@ const ProductForm = () => {
 
         const product = { name, SKU, category, condition, quantity }
 
-        const response = await fetch('http://localhost:4000/api/products', {
+        const response = await fetch(API_URL, {
             method: 'POST',
             body: JSON.stringify(product),
             headers: {

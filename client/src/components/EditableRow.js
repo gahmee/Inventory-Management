@@ -1,6 +1,7 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useState } from 'react'
 import ContextMenu from './ContextMenu';
+import { API_URL } from '../config'
 
 
 const EditableRow = ({ product, handleCancelClick }) => {
@@ -29,7 +30,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
 
         const product = { name, SKU, category, condition, previousQuantity, received, quantity }
 
-        const response = await fetch('http://localhost:4000/api/products/' + p._id, {
+        const response = await fetch(API_URL + p._id, {
             method: 'PATCH',
             body: JSON.stringify(product),
             headers: {

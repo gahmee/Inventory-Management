@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import ReceiveForm from "../components/ReceiveForm"
 import { useProductsContext } from '../hooks/useProductsContext'
+import { API_URL } from '../config'
 
 
 const Receive = () => {
@@ -8,7 +9,7 @@ const Receive = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch('http://localhost:4000/api/products')
+            const response = await fetch(API_URL)
             const json = await response.json()
 
             if (response.ok) {

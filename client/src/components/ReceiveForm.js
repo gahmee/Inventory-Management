@@ -4,6 +4,7 @@ import { useProductsContext } from '../hooks/useProductsContext'
 import { ToggleContext } from "../context/ToggleContext"
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import { API_URL } from '../config'
 
 const ReceiveForm = ({ products }) => {
   const [rowsData, setRowsData] = useState([])
@@ -50,7 +51,7 @@ const ReceiveForm = ({ products }) => {
 
     const product = { id, quantity, received }
 
-    const response = await fetch('http://localhost:4000/api/products/' + id, {
+    const response = await fetch(API_URL + id, {
       method: 'PATCH',
       body: JSON.stringify(product),
       headers: {

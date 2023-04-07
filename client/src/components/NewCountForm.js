@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useRef } from "react"
 import { useProductsContext } from '../hooks/useProductsContext'
 import ResetReceive from "./ResetReceive"
+import { API_URL } from '../config'
 
 const NewCountForm = ({ products }) => {
   const expectedQuantity = products.slice()
@@ -13,14 +14,14 @@ const NewCountForm = ({ products }) => {
 
   const submitData = async (id, newQuantity) => {
 
-    const productToUpdateResponse = await fetch('http://localhost:4000/api/products/' + id)
+    const productToUpdateResponse = await fetch(API_URL + id)
     const productToUpdate = await productToUpdateResponse.json()
     const previousQuantity = await productToUpdate.quantity
     const quantity = newQuantity
 
     const product = { id, previousQuantity, quantity }
 
-    const response = await fetch('http://localhost:4000/api/products/' + id, {
+    const response = await fetch(API_URL + id, {
       method: 'PATCH',
       body: JSON.stringify(product),
       headers: {

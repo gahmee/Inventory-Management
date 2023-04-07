@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useProductsContext } from '../hooks/useProductsContext'
+import { API_URL } from '../config'
 
 const ResetReceive = ({ products, handleResetToggle }) => {
     const [productsData, setProductsData] = useState([...products])
@@ -12,7 +13,7 @@ const ResetReceive = ({ products, handleResetToggle }) => {
 
         const product = { id, received }
 
-        const response = await fetch('http://localhost:4000/api/products/' + id, {
+        const response = await fetch(API_URL + id, {
             method: 'PATCH',
             body: JSON.stringify(product),
             headers: {

@@ -3,6 +3,7 @@ import { useProductsContext } from '../hooks/useProductsContext'
 import { ToggleContext } from '../context/ToggleContext'
 import Add from './Add'
 import Receive from './Receive'
+import { API_URL } from '../config'
 
 
 import ProductTable from '../components/ProductTable'
@@ -15,8 +16,11 @@ const Home = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch('http://localhost:4000/api/products')
+
+            console.log(API_URL)
+            const response = await fetch(API_URL)
             const json = await response.json()
+
 
             if (response.ok) {
                 dispatch({ type: 'SET_PRODUCTS', payload: json });
