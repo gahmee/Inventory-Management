@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const productRoutes = require('./routes/products')
 const app = express()
+const path = require('path');
 
 
 //middleware
@@ -13,6 +14,14 @@ app.use((req, res, next) => {
     next()
 })
 
+
+app.use(express.static(path.join(__dirname, "/client/build")))
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+)
+
+
+
 //routes
 app.use('/api/products', productRoutes)
 
@@ -20,9 +29,11 @@ app.use('/api/products', productRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT || 4000, () => {
-            console.log('connected to database and listening on port', process.env.PORT)
+            console.log('connected to database and listening on port', process.env.PORT, __dirname)
         })
     })
     .catch((error) => {
         console.log(error)
     })
+
+
