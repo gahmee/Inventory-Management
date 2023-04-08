@@ -13,7 +13,7 @@ const ReceiveRow = ({ products, rowsData, deleteRow, handleChange }) => {
                             <option class='options' key={product._id} value={product._id}>{product.name}</option>
                         )}
                     </select>
-                    <input className="input" name="quantity" type="number" required="required" value={quantity} onChange={(event) => handleChange(index, event)} />
+                    <input id="receive-input" className="input" name="quantity" type="number" required="required" value={quantity} onChange={(event) => handleChange(index, event)} />
                     <div className="delete-button" onClick={() => (deleteRow(index))}><DeleteIcon color="primary"/></div>
                 </div>
 

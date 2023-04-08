@@ -302,6 +302,10 @@ table, tr, td, th{
   align-items: center;
 }
 
+#receive-input {
+  width: 100px;
+}
+
 #receive-submit-button {
   display: flex;
   width: 100%;
