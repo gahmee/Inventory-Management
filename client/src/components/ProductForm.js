@@ -80,8 +80,8 @@ const ProductForm = () => {
                             --Choose and option--
                         </option>
                         <option value="Resell">Resell</option>
-                        <option value="Instructor">Instructor</option>
-                        <option value="Quarantine">Quarantine</option>
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
                     </select>
                     <label>Quantity: </label>
                     <input
