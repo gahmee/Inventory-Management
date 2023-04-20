@@ -128,9 +128,9 @@ const EditableRow = ({ product, handleCancelClick }) => {
             </td>
             <td>
                 <select value={condition} onChange={(e) => setCondition(e.target.value)}>
-                    <option value="Resell" >Resell</option>
-                    <option value="Instructor">Instructor</option>
-                    <option value="Quarantine">Quarantine</option>
+                    <option value="BAD" >BAD</option>
+                    <option value="GOOD">GOOD</option>
+                    <option value="RESELL">RESELL</option>
                 </select>
             </td>
             <td>
