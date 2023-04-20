@@ -79,9 +79,9 @@ const ProductForm = () => {
                         <option disabled={true} value="">
                             --Choose and option--
                         </option>
-                        <option value="Resell">Resell</option>
-                        <option value="Good">Good</option>
-                        <option value="Bad">Bad</option>
+                        <option value="RESELL">RESELL</option>
+                        <option value="GOOD">GOOD</option>
+                        <option value="BAD">BAD</option>
                     </select>
                     <label>Quantity: </label>
                     <input
