@@ -58,7 +58,7 @@ const EditableRow = ({ product, handleCancelClick }) => {
 
         const product = { name, SKU, category, condition, previousQuantity, received, quantity }
 
-        const response = await fetch('http://localhost:4000/api/products/' + p._id, {
+        const response = await fetch(API_URL + p._id, {
             method: 'DELETE',
             body: JSON.stringify(product),
             headers: {
