@@ -6,6 +6,10 @@ An inventory management app used for cycle counting and recording your returns i
 ### 1. Create .env File
 
 - change .env.example in server folder and rename it to .env
+![Capture2](https://user-images.githubusercontent.com/69001161/234270104-9fb2a473-fae6-490e-aa26-8e4043cc7acd.PNG)
+![Capture3](https://user-images.githubusercontent.com/69001161/234270109-134229a4-e075-41d4-8ed0-b855ac3283e8.PNG)
+![Capture4](https://user-images.githubusercontent.com/69001161/234270111-b1ad4716-4bfb-41f8-8cc2-2fac2796812d.PNG)
+![Capture5](https://user-images.githubusercontent.com/69001161/234270116-2962d053-be62-45e6-b241-f83368e0baa1.PNG)
 
 ### 2. Setup MongoDB
 
