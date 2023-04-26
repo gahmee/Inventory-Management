@@ -30,6 +30,16 @@ $ npm install
 $ npm start
 ```
 ## Receive a Product
+
+Track your products as they get delivered
+
+* On the navbar click receive
+* Click on the plus sign to add a product
+* From the drop down menu select the product and enter the quantity
+* Add as many products by clicking on the plus sign
+* Click submit to receive all entered products and their counts will be updated
+
+
 ![Capture2](https://user-images.githubusercontent.com/69001161/234270104-9fb2a473-fae6-490e-aa26-8e4043cc7acd.PNG)
 
 ## Add a New Product
